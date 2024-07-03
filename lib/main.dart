@@ -1,4 +1,6 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_day_49/firebase_options.dart';
 import 'package:flutter_day_49/views/screens/motivations_screen.dart';
 import 'package:flutter_day_49/views/screens/pomodoro_screen.dart';
 import 'package:flutter_day_49/views/screens/todos_screen.dart';
@@ -8,6 +10,7 @@ import 'services/local_notification_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await LocalNotificationService.start();
   runApp(const MainApp());
 }
